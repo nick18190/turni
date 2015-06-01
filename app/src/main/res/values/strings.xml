@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">turni</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="edit_text_hint">Incolla qui il testo dei turni o importa un file txt</string>
+    <string name="title_activity_working">WorkingActivity</string>
+    <string name="edittext_hint">Copia il testo dei turni o importalo da un file txt</string>
+    <string name="account_button_string">Scegli un calendario</string>
+    <string name="verona_event_color_string">Colore per San Michele</string>
+    <string name="bassona_event_color_string">Colore per la Bassona</string>
+    <string name="title_editor_text">Inserisci testo</string>
+    <string name="title_activity_calendar_dialog">CalendarDialog</string>
+    <string name="preference_file_key">com.app.turni.preference_file_key</string>
+    <string name="title_activity_color_selector_dialog">ColorSelectorDialog</string>
+    <string name="transition_dialog_llayout">transition_dialog_llayout</string>
+
+</resources>

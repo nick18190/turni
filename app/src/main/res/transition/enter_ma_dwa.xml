@@ -1,0 +1,8 @@
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
+    <fade/>
+    <slide>
+        <targets >
+            <target android:targetId="@id/analogClock"/>
+        </targets>
+    </slide>
+</transitionSet>

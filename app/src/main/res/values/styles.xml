@@ -1,0 +1,20 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/blue_500</item>
+    </style>
+
+    <color name="transparent">#00000000</color>
+    <color name="grey_200">#EEEEEE</color>
+    <color name="app_background_color">@color/grey_200</color>
+    <color name="red_500">#F44336</color>
+    <color name="amber_500">#FFC107</color>
+    <color name="red_A700">#D50000</color>
+    <color name="grey_500">#9E9E9E</color>
+    <color name="blue_500">#2196F3</color>
+    <color name="blue_600">#1E88E5</color>
+    <color name="indigo_900">#1A237E</color>
+    <color name="black_50">#85000000</color>
+
+</resources>

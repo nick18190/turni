@@ -1,0 +1,18 @@
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="1000">
+    <changeBounds />
+    <changeTransform />
+    <changeImageTransform />
+    <transitionSet android:transitionOrdering="sequential">
+        <transition
+            class="turni.app.it.turni.view_controller.RevealTransition"
+            android:transitionVisibilityMode="mode_out" />
+        <transition
+            class="turni.app.it.turni.view_controller.RevealTransition"
+            android:transitionVisibilityMode="mode_in" />
+        <targets>
+            <target android:targetName="@string/transition_dialog_llayout" />
+            <target android:targetName="snapshot" />
+        </targets>
+    </transitionSet>
+</transitionSet>

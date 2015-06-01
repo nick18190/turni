@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="turni.app.it.turni" >
+
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".view_controller.MainActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="stateHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view_controller.WorkingActivity"
+            android:label="@string/title_activity_working"
+            android:parentActivityName=".view_controller.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="turni.app.it.turni.view_controller.MainActivity" />
+        </activity>
+        <activity
+            android:name=".view_controller.CalendarDialog"
+            android:label="@string/title_activity_calendar_dialog"
+            android:theme="@style/DialogTheme" >
+        </activity>
+
+        <!-- suppress AndroidDomInspection -->
+        <service
+            android:name=".view_controller.WorkingService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
+
+        <activity
+            android:name=".view_controller.ColorSelectorDialog"
+            android:label="@string/title_activity_color_selector_dialog" >
+        </activity>
+    </application>
+
+</manifest>

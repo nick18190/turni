@@ -1,0 +1,8 @@
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
+    <fade >
+        <targets>
+            <target android:excludeName="@string/transition_dialog_llayout"  />
+        </targets>
+    </fade>
+
+</transitionSet>

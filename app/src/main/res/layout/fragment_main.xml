@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/my_awesome_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:elevation="10dp"
+        android:minHeight="?attr/actionBarSize" />
+
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/my_awesome_toolbar"
+        android:layout_alignParentStart="true"
+        android:background="@color/transparent"
+        android:elegantTextHeight="true"
+        android:hint="@string/edit_text_hint"
+        android:maxHeight="150dp"
+        android:paddingLeft="@dimen/activity_horizontal_short_margin"
+        android:paddingTop="@dimen/activity_horizontal_short_margin"
+        android:visibility="visible" />
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dialog_container"
+        android:layout_marginTop="-30dp"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+            <Button
+                android:id="@+id/account_button"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_items_height"
+                android:background="@drawable/button_background_v21"
+                android:drawableLeft="@drawable/drawable_calendar_grey600_24dp"
+                android:singleLine="true"
+                android:text="@string/account_button_string"
+                android:textAllCaps="false"
+                android:drawablePadding="@dimen/activity_horizontal_medium_margin"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="@dimen/activity_horizontal_short_margin"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/activity_horizontal_long_margin"
+                android:background="#BDBDBD" />
+
+            <EditText
+                android:id="@+id/title_text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_items_height"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/transparent"
+                android:drawableLeft="@drawable/drawable_descr_24dp"
+                android:drawablePadding="@dimen/activity_horizontal_medium_margin"
+                android:elegantTextHeight="true"
+                android:hint="@string/title_editor_text"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/activity_horizontal_short_margin" />
+
+            <TextView
+                android:id="@+id/title_example_text"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/list_items_height"
+                android:layout_marginLeft="@dimen/activity_horizontal_long_margin"
+                android:gravity="left|center_vertical"
+                android:text="Medium Text"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/activity_horizontal_long_margin"
+                android:background="#BDBDBD" />
+
+            <Button
+                android:id="@+id/verona_color_button"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_items_height"
+                android:background="@drawable/button_background_v21"
+                android:drawableLeft="@drawable/circle_orange_24dp"
+                android:drawablePadding="@dimen/activity_horizontal_medium_margin"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="@dimen/activity_horizontal_short_margin"
+                android:text="@string/verona_event_color_string" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/activity_horizontal_long_margin"
+                android:background="#BDBDBD" />
+
+            <Button
+                android:id="@+id/bassona_color_button"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_items_height"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawableLeft="@drawable/circle_orange_24dp"
+                android:drawablePadding="@dimen/activity_horizontal_medium_margin"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="@dimen/activity_horizontal_short_margin"
+                android:text="@string/bassona_event_color_string" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/dialog_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_text"
+        android:visibility="visible">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="256dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="20dp"
+            android:text="New Button" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_centerVertical="true"
+            android:background="#BDBDBD" />
+
+    </RelativeLayout>
+
+    <com.melnykov.fab.FloatingActionButton
+        android:id="@+id/foward_button"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_short_margin"
+        fab:fab_colorNormal="@color/red_500"
+        fab:fab_colorPressed="@color/red_500"
+        fab:fab_colorRipple="@color/red_A700"
+        fab:fab_shadow="true" />
+
+
+</RelativeLayout>

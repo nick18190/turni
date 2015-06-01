@@ -1,0 +1,13 @@
+<!-- The background for each button in the app
+    The background color must be the same as the activity background otherwise the ripple effect won't be displayed.
+    For API<21 use button_background in the Drawable folder -->
+
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?android:attr/colorControlHighlight">
+    <item>
+        <shape android:shape="rectangle">
+           <stroke android:color="@color/transparent"/>
+            <solid android:color="@color/app_background_color" />
+        </shape>
+    </item>
+</ripple>
