@@ -47,6 +47,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     private static final String RESULT_ACCOUNT = "result account";
     private static final String SP_CALENDAR_USED = "calendar used";
     private static final String SP_ACCOUNT_USED = "account used";
+    private static final String TAG_COLOR_BUTTON = "tag color button";
     private View mView;
     private FloatingActionButton mFowardButton;
     private EditText mEditText;
@@ -54,6 +55,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     private TextView mTextView;
     private Button mAccountButton;
     private SharedPreferences mSharedPref;
+    private Button mColorSelectorButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -70,12 +72,15 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         mFowardButton = (FloatingActionButton) mView.findViewById(R.id.foward_button);
         mEditText = (EditText) mView.findViewById(R.id.edit_text);
         mAccountButton = (Button) mView.findViewById(R.id.account_button);
+        mColorSelectorButton =(Button)mView.findViewById(R.id.verona_color_button);
 
         mFowardButton.setTag(TAG_FOWARD_BUTTON);
         mAccountButton.setTag(TAG_ACCOUNT_BUTTON);
+        mColorSelectorButton.setTag((TAG_COLOR_BUTTON));
 
         mFowardButton.setOnClickListener(this);
         mAccountButton.setOnClickListener(this);
+        mColorSelectorButton.setOnClickListener(this);
 
         String calendarName, accountName = null;
         calendarName = mSharedPref.getString(SP_CALENDAR_USED, null);
@@ -110,9 +115,20 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             Intent intent = new Intent(getActivity(), CalendarDialog.class);
             v.setTransitionName("snapshot");
             getActivity().getWindow().setExitTransition(null);
-            getActivity().getWindow().setReenterTransition(null);
-            getActivity().getWindow().setSharedElementEnterTransition(TransitionInflater.from(getActivity())
-                    .inflateTransition(R.transition.circular_reveal_shared_transition));
+            getActivity().getWindow().setEnterTransition(TransitionInflater.from(getActivity()).inflateTransition(R.transition.enter_ma_da));
+   //         getActivity().getWindow().setSharedElementEnterTransition(TransitionInflater.from(getActivity())
+     //               .inflateTransition(R.transition.circular_reveal_shared_transition));
+            startActivityForResult(intent, DIALOG_ACTIVITY_RESULT_CODE,
+                    ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
+            mAccountButton.animate().alpha(0).setDuration(250);
+        }
+        if (TAG_COLOR_BUTTON.equals(tag)) {
+            Intent intent = new Intent(getActivity(), ColorSelectorDialog.class);
+            v.setTransitionName("snapshot");
+            getActivity().getWindow().setExitTransition(null);
+            getActivity().getWindow().setEnterTransition(TransitionInflater.from(getActivity()).inflateTransition(R.transition.enter_ma_da));
+            //         getActivity().getWindow().setSharedElementEnterTransition(TransitionInflater.from(getActivity())
+            //               .inflateTransition(R.transition.circular_reveal_shared_transition));
             startActivityForResult(intent, DIALOG_ACTIVITY_RESULT_CODE,
                     ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
             mAccountButton.animate().alpha(0).setDuration(250);

@@ -15,5 +15,6 @@
     <string name="preference_file_key">com.app.turni.preference_file_key</string>
     <string name="title_activity_color_selector_dialog">ColorSelectorDialog</string>
     <string name="transition_dialog_llayout">transition_dialog_llayout</string>
+    <string name="transition_background">transition_background</string>
 
 </resources>

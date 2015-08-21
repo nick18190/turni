@@ -1,8 +1,34 @@
-<transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
-    <fade >
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <transition
+        class="turni.app.it.turni.view_controller.RevealTransition">
+
+</transition>
+
+
+</transitionSet>
+
+
+<!--
+
+
+
+ <fade>
         <targets>
-            <target android:excludeName="@string/transition_dialog_llayout"  />
+            <target android:targetName="@string/transition_dialog_llayout"/>
         </targets>
     </fade>
 
-</transitionSet>
+
+
+
+
+
+
+
+-->
+
+
+
+
+

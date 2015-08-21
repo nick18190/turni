@@ -4,4 +4,32 @@
     android:layout_height="match_parent"
     tools:context="turni.app.it.turni.view_controller.ColorSelectorDialog$PlaceholderFragment">
 
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+        <LinearLayout
+            android:transitionName="@string/transition_dialog_llayout"
+            android:id="@+id/calendar_dialog_llayout"
+            android:layout_width="wrap_content"
+            android:paddingLeft="16dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Medium Text"
+                android:drawablePadding="32dp"
+                android:drawableLeft="@drawable/blu"
+                android:id="@+id/row_color_1" />
+        </LinearLayout>
+
+    </ScrollView>
+
 </RelativeLayout>

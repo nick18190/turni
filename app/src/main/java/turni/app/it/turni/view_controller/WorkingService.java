@@ -276,12 +276,12 @@ public class WorkingService extends Service {
                     //TODO opzione modifica descrizione
                     values.put(CalendarContract.Events.DESCRIPTION, "Group workout");
                     if (isVerona) {
-                        values.put(CalendarContract.Events.EVENT_COLOR_KEY, 4);
+                        values.put(CalendarContract.Events.EVENT_COLOR_KEY, 11);
                         values.put(CalendarContract.Events.EVENT_LOCATION, "Via Monte Bianco, 18\n" +
                                 "37132 Verona VR");
                     }
                     if (isBassona) {
-                        values.put(CalendarContract.Events.EVENT_COLOR_KEY, 5);
+                        values.put(CalendarContract.Events.EVENT_COLOR_KEY, 6);
                         values.put(CalendarContract.Events.EVENT_LOCATION, "Via della Meccanica, 1\n" +
                                 "37139 Verona VR");
                     }
