@@ -22,6 +22,8 @@ import model.Util;
 import turni.app.it.turni.R;
 
 public class MainFragment extends Fragment implements View.OnClickListener {
+
+
     private static final boolean DEBUG = true;
     private static final String TAG = "MAINFRAGMENT";
     private static final String TURN_TEXT = "LAUNCH_WORKINGACTIVITY";
@@ -72,7 +74,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         mFowardButton = (FloatingActionButton) mView.findViewById(R.id.foward_button);
         mEditText = (EditText) mView.findViewById(R.id.edit_text);
         mAccountButton = (Button) mView.findViewById(R.id.account_button);
-        mColorSelectorButton =(Button)mView.findViewById(R.id.verona_color_button);
+        mColorSelectorButton = (Button) mView.findViewById(R.id.verona_color_button);
 
         mFowardButton.setTag(TAG_FOWARD_BUTTON);
         mAccountButton.setTag(TAG_ACCOUNT_BUTTON);
@@ -81,6 +83,10 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         mFowardButton.setOnClickListener(this);
         mAccountButton.setOnClickListener(this);
         mColorSelectorButton.setOnClickListener(this);
+
+        for (int i = 1; i < 11; i++) {
+            mColorSelectorButton.setCompoundDrawables(getActivity().getResources().getDrawable(ColorSelectorDialog.getColorDrawable(i)), null, null, null);
+        }
 
         String calendarName, accountName = null;
         calendarName = mSharedPref.getString(SP_CALENDAR_USED, null);
@@ -116,8 +122,8 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             v.setTransitionName("snapshot");
             getActivity().getWindow().setExitTransition(null);
             getActivity().getWindow().setEnterTransition(TransitionInflater.from(getActivity()).inflateTransition(R.transition.enter_ma_da));
-   //         getActivity().getWindow().setSharedElementEnterTransition(TransitionInflater.from(getActivity())
-     //               .inflateTransition(R.transition.circular_reveal_shared_transition));
+            //         getActivity().getWindow().setSharedElementEnterTransition(TransitionInflater.from(getActivity())
+            //               .inflateTransition(R.transition.circular_reveal_shared_transition));
             startActivityForResult(intent, DIALOG_ACTIVITY_RESULT_CODE,
                     ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
             mAccountButton.animate().alpha(0).setDuration(250);
@@ -131,7 +137,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             //               .inflateTransition(R.transition.circular_reveal_shared_transition));
             startActivityForResult(intent, DIALOG_ACTIVITY_RESULT_CODE,
                     ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
-            mAccountButton.animate().alpha(0).setDuration(250);
+            mColorSelectorButton.animate().alpha(0).setDuration(250);
         }
     }
 

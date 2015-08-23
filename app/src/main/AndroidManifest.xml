@@ -43,7 +43,8 @@
 
         <activity
             android:name=".view_controller.ColorSelectorDialog"
-            android:label="@string/title_activity_color_selector_dialog" >
+            android:label="@string/title_activity_color_selector_dialog"
+            android:theme="@style/DialogTheme" >
         </activity>
     </application>
 

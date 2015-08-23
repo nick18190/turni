@@ -15,12 +15,13 @@
             android:id="@+id/calendar_dialog_llayout"
             android:layout_width="wrap_content"
             android:paddingLeft="16dp"
+            android:paddingRight="32dp"
             android:layout_height="wrap_content"
             android:background="@android:color/white"
             android:orientation="vertical">
 
 
-            <TextView
+            <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
