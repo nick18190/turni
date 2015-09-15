@@ -74,9 +74,9 @@ public class CalendarDialog extends Activity {
          */
         private static final String RESULT_CALENDAR = "result calendar";
         /**
-         * Activity resul code Ok
+         * Activity resul code Ok for CalendarDialog class
          */
-        private static final int CODE_OK = 1;
+        private static final int CODE_CALENDAR_DIALOG_CLOSED = 1;
         /**
          * Activity resul code not Ok
          */
@@ -151,7 +151,7 @@ public class CalendarDialog extends Activity {
                 Intent resultIntent=new Intent();
                 resultIntent.putExtra(RESULT_CALENDAR,((Button) v).getText());
                 resultIntent.putExtra(RESULT_ACCOUNT,mAccountsList.get(v.getId()));
-                getActivity().setResult(CODE_OK, resultIntent);
+                getActivity().setResult(CODE_CALENDAR_DIALOG_CLOSED, resultIntent);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {

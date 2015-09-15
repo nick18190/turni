@@ -16,5 +16,15 @@
     <string name="title_activity_color_selector_dialog">ColorSelectorDialog</string>
     <string name="transition_dialog_llayout">transition_dialog_llayout</string>
     <string name="transition_background">transition_background</string>
+    <string name="color_viola">Rosso Acceso</string>
+    <string name="color_verde">Rosso Acceso</string>
+    <string name="color_turchese">Rosso Acceso</string>
+    <string name="color_rosso_acceso">Rosso Acceso</string>
+    <string name="color_rosso">Rosso Acceso</string>
+    <string name="color_grigio">Rosso Acceso</string>
+    <string name="color_giallo">Rosso Acceso</string>
+    <string name="color_blu_intenso">Rosso Acceso</string>
+    <string name="color_blu">Rosso Acceso</string>
+    <string name="color_arancione">Rosso Acceso</string>
 
 </resources>

@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/color_selector_dialog_background"
     tools:context="turni.app.it.turni.view_controller.ColorSelectorDialog$PlaceholderFragment">
 
     <ScrollView
@@ -11,24 +12,170 @@
         android:layout_centerVertical="true">
 
         <LinearLayout
-            android:transitionName="@string/transition_dialog_llayout"
-            android:id="@+id/calendar_dialog_llayout"
+            android:id="@+id/color_dialog_llayout"
             android:layout_width="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingRight="32dp"
             android:layout_height="wrap_content"
             android:background="@android:color/white"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:transitionName="@string/transition_dialog_llayout">
 
 
             <Button
+                android:id="@+id/row_color_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawablePadding="16dp"
+                android:gravity="left"
+                android:minHeight="32dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="16dp"
                 android:text="Medium Text"
-                android:drawablePadding="32dp"
                 android:drawableLeft="@drawable/blu"
-                android:id="@+id/row_color_1" />
+                android:textAppearance="?android:attr/textAppearanceListItem" />
+
+            <Button
+                android:id="@+id/row_color_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawablePadding="16dp"
+                android:minHeight="32dp"
+                android:gravity="left"
+                android:paddingLeft="16dp"
+                android:drawableLeft="@drawable/blu"
+                android:paddingRight="16dp"
+                android:text="Medium Text"
+
+                android:textAppearance="?android:attr/textAppearanceListItem" />
+
+            <Button
+                android:id="@+id/row_color_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawablePadding="16dp"
+                android:gravity="left"
+                android:minHeight="32dp"
+                android:drawableLeft="@drawable/viola_3"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="Medium Text"
+                android:textAppearance="?android:attr/textAppearanceListItem" />
+
+            <Button
+                android:id="@+id/row_color_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawablePadding="16dp"
+                android:minHeight="32dp"
+                android:gravity="left"
+                android:drawableLeft="@drawable/rosso_4"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="Medium Text"
+                android:textAppearance="?android:attr/textAppearanceListItem" />
+
+            <Button
+                android:id="@+id/row_color_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawablePadding="16dp"
+                android:minHeight="32dp"
+                android:gravity="left"
+                android:paddingLeft="16dp"
+                android:drawableLeft="@drawable/giallo_5"
+                android:paddingRight="16dp"
+                android:text="Medium Text"
+                android:textAppearance="?android:attr/textAppearanceListItem" />
+
+            <Button
+                android:id="@+id/row_color_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawablePadding="16dp"
+                android:gravity="left"
+                android:minHeight="32dp"
+                android:drawableLeft="@drawable/arancione_6"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="Medium Text"
+                android:textAppearance="?android:attr/textAppearanceListItem" />
+
+            <Button
+                android:id="@+id/row_color_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawablePadding="16dp"
+                android:minHeight="32dp"
+                android:gravity="left"
+                android:paddingLeft="16dp"
+                android:drawableLeft="@drawable/blu"
+                android:paddingRight="16dp"
+                android:text="Medium Text"
+                android:textAppearance="?android:attr/textAppearanceListItem" />
+
+            <Button
+                android:id="@+id/row_color_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawablePadding="16dp"
+                android:gravity="left"
+                android:minHeight="32dp"
+                android:paddingLeft="16dp"
+                android:drawableLeft="@drawable/blu"
+                android:paddingRight="16dp"
+                android:text="Medium Text"
+                android:textAppearance="?android:attr/textAppearanceListItem" />
+
+            <Button
+                android:id="@+id/row_color_9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawablePadding="16dp"
+                android:gravity="left"
+                android:drawableLeft="@drawable/blu"
+                android:minHeight="32dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="Medium Text"
+                android:textAppearance="?android:attr/textAppearanceListItem" />
+
+            <Button
+                android:id="@+id/row_color_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawablePadding="16dp"
+                android:gravity="left"
+                android:minHeight="32dp"
+                android:drawableLeft="@drawable/blu"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="Medium Text"
+                android:textAppearance="?android:attr/textAppearanceListItem" />
+
+            <Button
+                android:id="@+id/row_color_11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawablePadding="16dp"
+                android:minHeight="32dp"
+                android:gravity="left"
+                android:drawableLeft="@drawable/rosso_acceso_11"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="Medium Text"
+                android:textAppearance="?android:attr/textAppearanceListItem" />
+
         </LinearLayout>
 
     </ScrollView>

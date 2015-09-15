@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -29,7 +30,9 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     private static final String TURN_TEXT = "LAUNCH_WORKINGACTIVITY";
     private static final String TAG_FOWARD_BUTTON = "foward button";
     private static final String TAG_ACCOUNT_BUTTON = "calendar button";
-    private static final int DIALOG_ACTIVITY_RESULT_CODE = 1;
+    private static final int CALENDAR_DIALOG_ACTIVITY_RESULT_CODE = 1;
+    private static final int COLOR_DIALOG_ACTIVITY_RESULT_CODE = 2;
+    private static final String RESULT_COLOR_SELECTED = "result color selected";
     private static final String CALENDAR_ROW = "calendar row";
     /**
      * Activity result intent Key
@@ -49,7 +52,12 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     private static final String RESULT_ACCOUNT = "result account";
     private static final String SP_CALENDAR_USED = "calendar used";
     private static final String SP_ACCOUNT_USED = "account used";
-    private static final String TAG_COLOR_BUTTON = "tag color button";
+    private static final String TAG_VERONA_COLOR_BUTTON = "tag color button";
+    private static final String TAG_BASSONA_COLOR_BUTTON = "tag bassona color button";
+    private static final String COLOR_SELECTOR_BUNDLE = "color selector bundle";
+    private static final String BASSONA_COLOR_DEFAULT = "bassona color default";
+    private static final String VERONA_COLOR_DEFAULT = "result color selected";
+
     private View mView;
     private FloatingActionButton mFowardButton;
     private EditText mEditText;
@@ -57,7 +65,9 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     private TextView mTextView;
     private Button mAccountButton;
     private SharedPreferences mSharedPref;
-    private Button mColorSelectorButton;
+    private Button mVeronaColorButton;
+    private Button mBassonaColorButton;
+    private boolean openVerona=false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,19 +84,26 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         mFowardButton = (FloatingActionButton) mView.findViewById(R.id.foward_button);
         mEditText = (EditText) mView.findViewById(R.id.edit_text);
         mAccountButton = (Button) mView.findViewById(R.id.account_button);
-        mColorSelectorButton = (Button) mView.findViewById(R.id.verona_color_button);
+        mVeronaColorButton = (Button) mView.findViewById(R.id.verona_color_button);
+        mBassonaColorButton = (Button) mView.findViewById(R.id.bassona_color_button);
 
         mFowardButton.setTag(TAG_FOWARD_BUTTON);
         mAccountButton.setTag(TAG_ACCOUNT_BUTTON);
-        mColorSelectorButton.setTag((TAG_COLOR_BUTTON));
+        mVeronaColorButton.setTag((TAG_VERONA_COLOR_BUTTON));
+        mBassonaColorButton.setTag((TAG_BASSONA_COLOR_BUTTON));
+
+        int drawableColor=ColorSelectorDialog.getColorDrawable(mSharedPref.getInt(VERONA_COLOR_DEFAULT, 1));
+        Drawable d = getResources().getDrawable(drawableColor);
+        mVeronaColorButton.setCompoundDrawablesWithIntrinsicBounds(d, null, null, null);
+        drawableColor=ColorSelectorDialog.getColorDrawable(mSharedPref.getInt(BASSONA_COLOR_DEFAULT, 1));
+        d = getResources().getDrawable(drawableColor);
+        mBassonaColorButton.setCompoundDrawablesWithIntrinsicBounds(d, null, null, null);
+
 
         mFowardButton.setOnClickListener(this);
         mAccountButton.setOnClickListener(this);
-        mColorSelectorButton.setOnClickListener(this);
-
-        for (int i = 1; i < 11; i++) {
-            mColorSelectorButton.setCompoundDrawables(getActivity().getResources().getDrawable(ColorSelectorDialog.getColorDrawable(i)), null, null, null);
-        }
+        mVeronaColorButton.setOnClickListener(this);
+        mBassonaColorButton.setOnClickListener(this);
 
         String calendarName, accountName = null;
         calendarName = mSharedPref.getString(SP_CALENDAR_USED, null);
@@ -95,8 +112,8 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         if (calendarName != null && accountName != null && Util.getCalendarID(getActivity(), calendarName, accountName) >= 0)
             mAccountButton.setText(calendarName + "  (" + accountName + ")");
 
-        String text = "2015-03-31 XL90355Bonuzzi N.LD1-VR107.00-14.12\n" +
-                "2015-04-01 XL90355Bonuzzi N.LN1-VR221.15-04.27\n";
+        String text = "2015-11-23 XL90355Bonuzzi N.LD1-VR107.00-14.12\n" +
+                "2015-11-24 XL90355Bonuzzi N.LD1-VR207.00-14.12";
         //         "2015-04-07 XL90355Bonuzzi N.RECRecupero";
 //        String text="";
         mEditText.setText(text);
@@ -124,38 +141,76 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             getActivity().getWindow().setEnterTransition(TransitionInflater.from(getActivity()).inflateTransition(R.transition.enter_ma_da));
             //         getActivity().getWindow().setSharedElementEnterTransition(TransitionInflater.from(getActivity())
             //               .inflateTransition(R.transition.circular_reveal_shared_transition));
-            startActivityForResult(intent, DIALOG_ACTIVITY_RESULT_CODE,
+            startActivityForResult(intent, CALENDAR_DIALOG_ACTIVITY_RESULT_CODE,
                     ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
             mAccountButton.animate().alpha(0).setDuration(250);
         }
-        if (TAG_COLOR_BUTTON.equals(tag)) {
+        if (TAG_VERONA_COLOR_BUTTON.equals(tag) || TAG_BASSONA_COLOR_BUTTON.equals(tag)) {
             Intent intent = new Intent(getActivity(), ColorSelectorDialog.class);
+            if (TAG_VERONA_COLOR_BUTTON.equals(tag)) {
+                intent.putExtra(COLOR_SELECTOR_BUNDLE, TAG_VERONA_COLOR_BUTTON);
+                openVerona = true;
+            }
+            if (TAG_BASSONA_COLOR_BUTTON.equals(tag)) {
+                intent.putExtra(COLOR_SELECTOR_BUNDLE, TAG_BASSONA_COLOR_BUTTON);
+                openVerona = false;
+            }
             v.setTransitionName("snapshot");
             getActivity().getWindow().setExitTransition(null);
             getActivity().getWindow().setEnterTransition(TransitionInflater.from(getActivity()).inflateTransition(R.transition.enter_ma_da));
             //         getActivity().getWindow().setSharedElementEnterTransition(TransitionInflater.from(getActivity())
             //               .inflateTransition(R.transition.circular_reveal_shared_transition));
-            startActivityForResult(intent, DIALOG_ACTIVITY_RESULT_CODE,
+            startActivityForResult(intent, COLOR_DIALOG_ACTIVITY_RESULT_CODE,
                     ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
-            mColorSelectorButton.animate().alpha(0).setDuration(250);
+            if (TAG_VERONA_COLOR_BUTTON.equals(tag))
+                mVeronaColorButton.animate().alpha(0).setDuration(250);
+            if (TAG_BASSONA_COLOR_BUTTON.equals(tag))
+                mBassonaColorButton.animate().alpha(0).setDuration(250);
         }
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == DIALOG_ACTIVITY_RESULT_CODE && resultCode == CODE_OK) {
-            final Intent intent = data;
-            String calendarName = data.getStringExtra(RESULT_CALENDAR);
-            String accountName = data.getStringExtra(RESULT_ACCOUNT);
-            // calendar_name  (account_name)
-            mAccountButton.setText(calendarName + "  (" + accountName + ")");
-            mAccountButton.animate().alpha(1f).setDuration(250);
-            SharedPreferences.Editor edit = mSharedPref.edit();
-            edit.putString(SP_CALENDAR_USED, calendarName);
-            edit.putString(SP_ACCOUNT_USED, accountName);
-            edit.commit();
-        } else
-            mAccountButton.animate().alpha(1f).setDuration(250);
-        super.onActivityResult(requestCode, resultCode, data);
+        int req = requestCode;
+        switch (requestCode) {
+            case (CALENDAR_DIALOG_ACTIVITY_RESULT_CODE):
+                if (resultCode == CODE_OK) {
+                    String calendarName = data.getStringExtra(RESULT_CALENDAR);
+                    String accountName = data.getStringExtra(RESULT_ACCOUNT);
+                    // calendar_name  (account_name)
+                    mAccountButton.setText(calendarName + "  (" + accountName + ")");
+                    mAccountButton.animate().alpha(1f).setDuration(250);
+                    SharedPreferences.Editor edit = mSharedPref.edit();
+                    edit.putString(SP_CALENDAR_USED, calendarName);
+                    edit.putString(SP_ACCOUNT_USED, accountName);
+                    edit.commit();
+                } else
+                    mAccountButton.animate().alpha(1f).setDuration(250);
+
+                break;
+            case (COLOR_DIALOG_ACTIVITY_RESULT_CODE):
+                if (resultCode == CODE_OK) {
+                    int colorSelected = 0;
+                    if (TAG_VERONA_COLOR_BUTTON.equals(data.getStringExtra(COLOR_SELECTOR_BUNDLE))) {
+                        colorSelected = mSharedPref.getInt(VERONA_COLOR_DEFAULT, 0);
+                        int colorDrawable = ColorSelectorDialog.getColorDrawable(colorSelected);
+                        Drawable d = getActivity().getResources().getDrawable(colorDrawable);
+                        mVeronaColorButton.setCompoundDrawablesWithIntrinsicBounds(d, null, null, null);
+                        mVeronaColorButton.animate().alpha(1f).setDuration(250);
+                    } else {
+                        colorSelected = mSharedPref.getInt(BASSONA_COLOR_DEFAULT, 0);
+                        int colorDrawable = ColorSelectorDialog.getColorDrawable(colorSelected);
+                        Drawable d = getActivity().getResources().getDrawable(colorDrawable);
+                        mBassonaColorButton.setCompoundDrawablesWithIntrinsicBounds(d, null, null, null);
+                        mBassonaColorButton.animate().alpha(1f).setDuration(250);
+                    }
+                    break;
+                }
+                else {
+                    mVeronaColorButton.animate().alpha(1f).setDuration(250);
+                    mBassonaColorButton.animate().alpha(1f).setDuration(250);
+                }
+                super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }
