@@ -6,6 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
 
-    />
+    tools:layout="@layout/fragment_main" />
 
 
