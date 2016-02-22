@@ -18,7 +18,7 @@ import turni.app.it.turni.R;
  * Use the {@link WorkingFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class WorkingFragment extends Fragment {
+public class  WorkingFragment extends Fragment {
     private static final boolean DEBUG = true;
     private static final String TAG = "WORKING FRAGMENT";
     private static final String CREATE_EVENTS = "create events";

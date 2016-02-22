@@ -22,7 +22,7 @@ import com.melnykov.fab.FloatingActionButton;
 import model.Util;
 import turni.app.it.turni.R;
 
-public class MainFragment extends Fragment implements View.OnClickListener {
+public class  MainFragment extends Fragment implements View.OnClickListener {
 
 
     private static final boolean DEBUG = true;

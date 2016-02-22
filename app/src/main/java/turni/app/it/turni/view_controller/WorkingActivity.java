@@ -9,7 +9,7 @@ import android.view.MenuItem;
 
 import turni.app.it.turni.R;
 
-public class WorkingActivity extends Activity {
+public class  WorkingActivity extends Activity {
 
     private static final String LAUNCH_ACTIVITY = "LAUNCH_WORKINGACTIVITY";
     private static final boolean DEBUG = true;

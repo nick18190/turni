@@ -34,7 +34,7 @@ package turni.app.it.turni.view_controller;
         import java.util.ArrayList;
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-public class RevealTransition extends Visibility {
+public class  RevealTransition extends Visibility {
     private float originalAlpha;
 
     public RevealTransition(Context context, AttributeSet attrs) {

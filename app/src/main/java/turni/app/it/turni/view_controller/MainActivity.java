@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import turni.app.it.turni.R;
 
 
-public class MainActivity extends ActionBarActivity {
+public class  MainActivity extends ActionBarActivity {
     private static final boolean DEBUG = true;
     private static final String TAG = "";
 

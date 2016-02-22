@@ -19,7 +19,7 @@ import java.util.TimeZone;
 import model.Util;
 import turni.app.it.turni.R;
 
-public class WorkingService extends Service {
+public class WorkingService  extends Service {
     // Debug variables
     private static final boolean DEBUG = true;
     private static final String TAG = "WORKING SERVICE";

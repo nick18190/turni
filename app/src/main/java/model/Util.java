@@ -16,7 +16,7 @@ import turni.app.it.turni.R;
 /**
  * Created by nick on 26/03/2015.
  */
-public class Util {
+public class  Util {
     private static final boolean DEBUG = true;
     private static final String TAG = "Util";
 
